@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Basic sanity check.
+old_dir="${HOME}/dotfiles.old"
+if [ -d "$old_dir" ]; then
+    printf "You already have a dotfile backup directory! Remove it first."
+    exit 1
+fi
+
+# Make the backup dir exist.
+mkdir "$old_dir"
+
+# Determine which files need to be put in place.
+targets="`find . -maxdepth 1 -type f -name \".*\"`"
+
+# For each target, back it up and symlink the reposed one.
+for target in $targets; do
+    target_file=`basename $target`
+    if [ -f "${HOME}/$target_file" ]; then
+        mv "${HOME}/$target_file" "$old_dir"
+    fi
+    ln -s "${PWD}/$target_file" "${HOME}/$target_file"
+done
+
+
