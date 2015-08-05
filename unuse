@@ -1,0 +1,14 @@
+#!/bin/bash
+
+targets="`find . -maxdepth 1 -type f -name \".*\"`"
+
+for target in $targets; do
+    target_file="`basename $target`"
+    unlink "${HOME}/$target_file"
+done
+
+old_dir="${HOME}/dotfiles.old"
+to_restore="`find ${old_dir} -maxdepth 1 -type f -name \".*\"`"
+cp $to_restore "${HOME}"
+rm -rf "${old_dir}"
+
