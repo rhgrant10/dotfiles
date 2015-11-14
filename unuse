@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 targets="`find . -maxdepth 1 -type f -name \".*\"`"
 

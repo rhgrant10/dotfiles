@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Basic sanity check.
 old_dir="${HOME}/dotfiles.old"
