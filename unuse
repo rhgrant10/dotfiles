@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+
 # Basic sanity check
-if [ ! -d "${HOME}/dotfiles.old" ]; then
+old_dir="${HOME}/dotfiles.old"
+if [ ! -d "${old_dir}" ]; then
   exit 1
 fi
 
@@ -12,8 +14,6 @@ for target in $targets; do
     unlink "${HOME}/$target_file"
 done
 
-old_dir="${HOME}/dotfiles.old"
-to_restore="`find ${old_dir} -maxdepth 1 -type f -name \".*\"`"
-cp $to_restore "${HOME}"
+cp ${old_dir}/* "${HOME}"
 rm -rf "${old_dir}"
 
