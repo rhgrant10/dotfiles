@@ -8,3 +8,7 @@
 	hist = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph --date=short
 [push]
 	default = current
+[credential]
+	helper = osxkeychain
+[tag]
+	sort = version:refname
