@@ -1,4 +1,4 @@
-if ls --color 2>&1 > /dev/null; then
+if ls --color > /dev/null 2>&1; then
   alias ls='ls --color'
 else
   alias ls='ls -G'
