@@ -16,3 +16,4 @@ if which thefuck > /dev/null; then
     eval $(thefuck --alias)
 fi
 
+source ~/praxis-airflow-helper.sh
