@@ -37,3 +37,7 @@ elif [ "$RG_PLATFORM" == "macos" ]; then
     fi
 fi
 
+if [ -x /usr/bin/byobu-launch ]; then
+    _byobu_sourced=1 . /usr/bin/byobu-launch
+fi
+
