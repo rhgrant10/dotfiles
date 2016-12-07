@@ -41,3 +41,10 @@ if [ -x /usr/bin/byobu-launch ]; then
     _byobu_sourced=1 . /usr/bin/byobu-launch
 fi
 
+function kip() {
+    ips=$(grep hostname .kitchen/default* | awk '{ print $2 }')
+    if [ -n "$1" ]; then
+        ips=$(echo "$ips" | grep "$1")
+    fi
+    echo $ips
+}
