@@ -1,6 +1,10 @@
 source ~/.bash_prompt
 source ~/.bash_aliases
-source ~/code/openrc.sh
+
+if [ -s ~/code/openrc.sh ]; then
+    source ~/code/openrc.sh
+fi
+
 export EDITOR=vim
 
 if grep proxy /etc/environment; then
@@ -13,10 +17,14 @@ else
 fi
 export http_proxy https_proxy ftp_proxy no_proxy
 
-if which thefuck 2>&1 > /dev/null; then
+if which thefuck > /dev/null 2>&1; then
     eval $(thefuck --alias)
 fi
 
 export PATH="${PATH}:${HOME}/.chefdk/gem/ruby/2.3.0/bin"
 export KITCHEN_LOCAL_YAML="${HOME}/code/kitchen.local.yml"
 
+
+if [ -s ~/praxis-airflow-helper.sh ]; then
+    source ~/praxis-airflow-helper.sh
+fi
