@@ -7,7 +7,7 @@ fi
 
 export EDITOR=vim
 
-if grep proxy /etc/environment; then
+if grep --quiet proxy /etc/environment; then
     . /etc/environment
 else
     http_proxy=http://no-proxy.app.c9.equifax.com:3128
