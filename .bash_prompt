@@ -46,11 +46,14 @@ function set_git_branch {
   git_status="$(git status 2> /dev/null)"
 
   # Set color based on clean/staged/dirty.
-  if [[ ${git_status} =~ "working tree clean" ]]; then
+  no_changes="working (tree|directory) clean"
+  staged_changes="Changes to be committed"
+  if [[ ${git_status} =~ ${no_changes} ]]; then
     state="${LIGHT_GREEN}"
-  elif [[ ${git_status} =~ "Changes to be committed" ]]; then
+  elif [[ ${git_status} =~ ${staged_changes} ]]; then
     state="${YELLOW}"
   else
+    # dirty working directory but nothing staged
     state="${LIGHT_RED}"
   fi
 
