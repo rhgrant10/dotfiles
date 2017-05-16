@@ -1,14 +1,15 @@
 [user]
-	name = Robert Grant
-	email = robert.grant@equifax.com
+    name = Robert Grant
+    email = robert.grant@equifax.com
 [color]
-	ui = auto
-	status = always
+    ui = auto
+    status = always
 [alias]
-	hist = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph --date=short
+    hist = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph --date=short
+    update = "!f() { b=$(git branch | grep \"*\" | awk '{ print $2 }'); git checkout \"$1\" && git pull && git checkout \"$b\"; }; f"
 [push]
-	default = current
+    default = current
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 [tag]
-	sort = version:refname
+ 	sort = version:refname
