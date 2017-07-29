@@ -47,13 +47,8 @@ export EDITOR=vim
 
 if grep --quiet proxy /etc/environment; then
     . /etc/environment
-else
-    http_proxy=http://no-proxy.app.c9.equifax.com:3128
-    https_proxy=http://no-proxy.app.c9.equifax.com:3128
-    ftp_proxy=http://no-proxy.app.c9.equifax.com:3128
-    no_proxy=localhost,127.0.0.1 
+	export http_proxy https_proxy ftp_proxy no_proxy
 fi
-export http_proxy https_proxy ftp_proxy no_proxy
 
 if which thefuck > /dev/null 2>&1; then
     eval $(thefuck --alias)
