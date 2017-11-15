@@ -29,34 +29,9 @@ if [ -x /usr/bin/byobu-launch ]; then
     _byobu_sourced=1 . /usr/bin/byobu-launch
 fi
 
-function kip() {
-    if [ -n "$1" ]; then
-        partial="$1"
-    else
-        partial="default"
-    fi
-    ips=$(grep hostname .kitchen/*${partial}* | awk '{ print $2 }')
-    echo $ips
-}
-
-if [ -s ~/code/openrc.sh ]; then
-    source ~/code/openrc.sh
-fi
-
 export EDITOR=vim
-
-if grep --quiet proxy /etc/environment; then
-    . /etc/environment
-	export http_proxy https_proxy ftp_proxy no_proxy
-fi
 
 if which thefuck > /dev/null 2>&1; then
     eval $(thefuck --alias)
 fi
 
-export PATH="${PATH}:${HOME}/.chefdk/gem/ruby/2.3.0/bin"
-export KITCHEN_LOCAL_YAML="${HOME}/code/kitchen.local.yml"
-
-if [ -s ~/praxis-airflow-helper.sh ]; then
-    source ~/praxis-airflow-helper.sh
-fi
