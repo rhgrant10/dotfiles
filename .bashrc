@@ -1,8 +1,18 @@
 source ~/.bash_prompt
 source ~/.bash_aliases
 
+# history
+shopt -s histappend
+HISTFILESIZE=10000000
+HISTSIZE=100000
+HISTCONTROL=ignoreboth
+HISTIGNORE="history"
+HISTTIMEFORMAT="%F %T "
 
-# set PATH so it includes user's private bin if it exists
+# misc
+export EDITOR=vim
+
+# include my stuff
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
@@ -25,13 +35,16 @@ elif [ "$RG_PLATFORM" == "macos" ]; then
     fi
 fi
 
+# use byobu if we have it
 if [ -x /usr/bin/byobu-launch ]; then
     _byobu_sourced=1 . /usr/bin/byobu-launch
 fi
-
-export EDITOR=vim
-
+# tf is handy af
 if which thefuck > /dev/null 2>&1; then
     eval $(thefuck --alias)
 fi
 
+# bring in stuff at work... if at work
+if [ -s ~/.bash_atwork ]; then
+    source ~/.bash_atwork
+fi
