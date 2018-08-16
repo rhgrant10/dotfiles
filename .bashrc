@@ -11,6 +11,7 @@ HISTTIMEFORMAT="%F %T "
 
 # misc
 export EDITOR=vim
+export GOPATH="${HOME}/code/go"
 
 # include my stuff
 if [ -d "$HOME/bin" ] ; then
