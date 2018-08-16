@@ -13,4 +13,6 @@ alias zegrep='zegrep --color=auto'
 alias zfgrep='zfgrep --color=auto'
 alias python='python -B'
 
+alias random='sort -R | head -n 1'
+
 which colordiff 2>&1 > /dev/null && alias diff='colordiff'
