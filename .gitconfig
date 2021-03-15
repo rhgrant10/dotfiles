@@ -1,15 +1,20 @@
 [user]
     name = Robert Grant
-    email = rhgrant10@gmail.com
+    email = rgrant@linkedin.com
 [color]
     ui = auto
-    status = always
+    status = auto
 [alias]
     hist = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%ae>%Creset' --graph --date=short
     update = "!f() { b=$(git branch | grep \"*\" | awk '{ print $2 }'); git checkout \"$1\" && git pull && git checkout \"$b\"; }; f"
+    forget-local = "!f() { b=$1; git fetch origin && (git checkout origin/$b && git branch -D $b) 2> /dev/null && git checkout $b; }; f"
+    egrep = "grep --extended-regex"
 [push]
     default = current
 [credential]
     helper = osxkeychain
 [tag]
     sort = version:refname
+[core]
+	pager = less -+F
+	excludesfile = /Users/rgrant/.gitignore_global

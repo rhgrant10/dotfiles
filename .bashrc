@@ -19,6 +19,7 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # Determine what we're running on here.
+# This abstracts the version specifics like "darwin19.0"
 case "$OSTYPE" in
     linux*) RG_PLATFORM=linux;;
     darwin*) RG_PLATFORM=macos;;

@@ -14,5 +14,7 @@ alias zfgrep='zfgrep --color=auto'
 alias python='python -B'
 
 alias random='sort -R | head -n 1'
+alias count='sort | uniq -c | sort -n'
+alias trim="awk '{ gsub(/^[ \t]+|[ \t]+$/, \"\"); print }'"
 
 which colordiff 2>&1 > /dev/null && alias diff='colordiff'
